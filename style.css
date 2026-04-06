@@ -1,0 +1,41 @@
+/* Custom Popup Styling */
+.leaflet-popup-content-wrapper {
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    width: 240px !important;
+}
+
+/* Animated Bunny Trail */
+.bunny-path {
+    stroke-dasharray: 10, 15;
+    animation: dash 20s linear infinite;
+}
+
+@keyframes dash {
+    from { stroke-dashoffset: 300; }
+    to { stroke-dashoffset: 0; }
+}
+
+/* Custom Marker Pulse */
+.egg-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border: 2px solid #059669;
+    border-radius: 50% 50% 50% 10%;
+    transform: rotate(-45deg);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.egg-marker span {
+    transform: rotate(45deg);
+    font-size: 14px;
+    font-weight: bold;
+}
