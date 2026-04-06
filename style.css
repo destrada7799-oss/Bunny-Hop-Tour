@@ -1,46 +1,77 @@
-/* Ensure Popups stay above everything */
-.leaflet-popup {
-    z-index: 2000 !important;
+/* The Egg Marker Shape */
+.custom-egg-marker {
+    display: flex;
+    justify-content: center;
 }
 
-.leaflet-popup-content-wrapper {
-    border-radius: 12px;
-    padding: 0;
-    overflow: hidden;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-}
-
-.leaflet-popup-content {
-    margin: 0 !important;
-    width: 260px !important;
-}
-
-/* Custom Egg Marker */
-.egg-marker {
+.egg-shape {
+    width: 34px;
+    height: 45px;
+    background-color: #059669; /* Compass Emerald */
+    border: 3px solid white;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* Creates the Egg shape */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #059669;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.egg-shape span {
     color: white;
-    border: 3px solid white;
-    border-radius: 50% 50% 50% 10%;
-    transform: rotate(-45deg);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.egg-marker span {
-    transform: rotate(45deg);
-    font-size: 14px;
     font-weight: 900;
+    font-size: 16px;
+    font-family: sans-serif;
 }
 
-/* Trail Animation */
-.bunny-path {
-    stroke-dasharray: 12, 20;
-    animation: dashMove 30s linear infinite;
+/* Trail Animation - This makes the dashes "crawl" along the road */
+.animated-trail {
+    stroke-dashoffset: 1000;
+    animation: dash 30s linear infinite;
 }
 
-@keyframes dashMove {
-    from { stroke-dashoffset: 500; }
+@keyframes dash {
     to { stroke-dashoffset: 0; }
 }
+
+/* Custom Popup Styling */
+.leaflet-popup-content-wrapper {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.popup-header {
+    background: #064e3b;
+    color: white;
+    padding: 12px;
+}
+
+.popup-body {
+    padding: 12px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 800;
+    color: #059669;
+}
+
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.btn-listing, .btn-nav {
+    text-align: center;
+    padding: 8px;
+    font-size: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn-listing { border: 1px solid #333; color: #333; }
+.btn-nav { background: #059669; color: white; }
