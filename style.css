@@ -1,41 +1,46 @@
-/* Custom Popup Styling */
+/* Ensure Popups stay above everything */
+.leaflet-popup {
+    z-index: 2000 !important;
+}
+
 .leaflet-popup-content-wrapper {
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 0;
     overflow: hidden;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
 }
 
 .leaflet-popup-content {
     margin: 0 !important;
-    width: 240px !important;
+    width: 260px !important;
 }
 
-/* Animated Bunny Trail */
-.bunny-path {
-    stroke-dasharray: 10, 15;
-    animation: dash 20s linear infinite;
-}
-
-@keyframes dash {
-    from { stroke-dashoffset: 300; }
-    to { stroke-dashoffset: 0; }
-}
-
-/* Custom Marker Pulse */
+/* Custom Egg Marker */
 .egg-marker {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: white;
-    border: 2px solid #059669;
+    background: #059669;
+    color: white;
+    border: 3px solid white;
     border-radius: 50% 50% 50% 10%;
     transform: rotate(-45deg);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .egg-marker span {
     transform: rotate(45deg);
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 900;
+}
+
+/* Trail Animation */
+.bunny-path {
+    stroke-dasharray: 12, 20;
+    animation: dashMove 30s linear infinite;
+}
+
+@keyframes dashMove {
+    from { stroke-dashoffset: 500; }
+    to { stroke-dashoffset: 0; }
 }
